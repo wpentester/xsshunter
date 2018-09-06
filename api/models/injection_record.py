@@ -19,6 +19,8 @@ class Injection(Base):
     dom = Column(Text())
     origin = Column(String(300))
     screenshot = Column(String(300))
+    cred_username = Column(String(300))
+    cred_password = Column(String(300))
     owner_id = Column(String(100))
     browser_time = Column(BigInteger())
     correlated_request = Column(Text())
@@ -27,7 +29,7 @@ class Injection(Base):
         self.id = binascii.hexlify(os.urandom(50))
 
     def get_injection_blob( self ):
-        exposed_attributes = [ "id", "document_body", "vulnerable_domain", "vulnerable_page", "victim_ip", "referer", "user_agent", "cookies", "dom", "origin", "screenshot", "injection_timestamp", "correlated_request", "browser_time" ]
+        exposed_attributes = [ "id", "document_body", "vulnerable_domain", "vulnerable_page", "victim_ip", "referer", "user_agent", "cookies", "dom", "origin", "screenshot", "cred_username", "cred_password", "injection_timestamp", "correlated_request", "browser_time" ]
         return_dict = {}
 
         for attribute in exposed_attributes:
