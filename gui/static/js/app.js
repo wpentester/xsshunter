@@ -340,8 +340,8 @@ function append_xss_fire_row( injection_data ) {
     if( injection_data["screenshot"].length > 0 ) example_row.querySelector( ".xss_fire_thumbnail_image" ).src = API_SERVER + "/" + injection_data["screenshot"];
     example_row.querySelector( ".ip_address_trace_link" ).href = "http://www.ip-tracker.org/locator/ip-lookup.php?ip=" + injection_data["victim_ip"];
     example_row.querySelector( ".ip_address_trace_link" ).text = injection_data["victim_ip"];
-    example_row.querySelector( ".cred_username" ).text = injection_data["cred_username"];
-    example_row.querySelector( ".cred_password" ).text = injection_data["cred_password"];
+    example_row.querySelector( ".cred_username" ).innerText  = injection_data["cred_username"];
+    example_row.querySelector( ".cred_password" ).innerText  = injection_data["cred_password"];
     example_row.querySelector( ".vulnerable_page_uri" ).text = injection_data["vulnerable_page"];
     if( is_safe_uri( injection_data["vulnerable_page"] ) ) {
         example_row.querySelector( ".vulnerable_page_uri" ).href = injection_data["vulnerable_page"];
