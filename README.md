@@ -1,3 +1,6 @@
+# Fork Note
+This fork of xsshunter includes some JavaScript to steal a user's username and password and displays them on the xss fire page. The rest of this README is from the original author, not me.
+
 # XSS Hunter Source Code
 This is a portable version of the source code running on https://xsshunter.com. It is designed to be easily-installable on any server for security professionals and bug bounty hunters who wish to test for XSS in a much more powerful way.
 
