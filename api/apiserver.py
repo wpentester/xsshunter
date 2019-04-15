@@ -451,13 +451,6 @@ class HomepageHandler(BaseHandler):
         else:
             new_probe = new_probe.replace( '[TEMPLATE_REPLACE_ME]', json.dumps( "" ))
 
-	# Check recent callbacks
-	if "Referer" in self.request.headers:
-            if 0 < session.query( Injection ).filter( Injection.victim_ip == self.request.remote_ip, Injection.injection_timestamp > time.time()-900, Injection.vulnerable_page == self.request.headers.get("Referer")).count():
-                new_probe = 'Injection already recorded within last fifteen minutes'
-	else:
-	    if 0 < session.query( Injection ).filter( Injection.victim_ip == self.request.remote_ip, Injection.injection_timestamp > time.time()-900).count():
-                new_probe = 'Injection already recorded within last fifteen minutes'
 
         if self.request.uri != "/":
             probe_id = self.request.uri.split('/')[1].split('?')[0]
